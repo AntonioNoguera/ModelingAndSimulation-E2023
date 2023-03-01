@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Distribución de Poisson</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #formulario , #target{
+            left: 30%;
+            width: 550px;
+            right: 30%;
+            position:relative;
+            text-align: center;
+        }
+        #contenedor{
+            text-align: center;
+            display: inline-block;
+        }
+        #contenedor p{
+            width: 420px;
+            
+            text-align: right;
+        }
+    </style>
+    <script>
+        //Hora Inicio: 2:20pm
+        'use strict' 
+ 
+        function poisson(){
+            var lambda = document.getElementById("inputLambda").value;
+            var N = document.getElementById("nAzar").value;
+
+            if((N<=0 || lambda<=0)){
+                alert("Todos los campos deben ser positivos y mayores a 0!");
+            }else{
+                generadorPoisson(N,lambda);
+            }
+        }
+
+        function generadorPoisson(N,lambda){
+            const elambda = Math.pow(2.7182818284,-lambda);
+
+            var arrR = "";
+            var arrValores = [];
+
+            for(var i=0;i<N;i++){
+                var R = Math.random().toFixed(5);
+                let sum = 0;
+                let Pois;
+                let Fact=1; 
+
+                arrR+= R+", ";
+
+                for(var j=0;sum<=R;j++){
+                    if(j == 0){
+                        Pois = elambda*Math.pow(lambda, j);
+                        sum += Pois; 
+                    }else{
+                        Fact*= j;
+                        Pois = (elambda*Math.pow(lambda, j)) / Fact;
+                        sum += Pois;
+                    }
+
+                }
+                console.log(sum);
+                arrValores+= j+", "; 
+            }
+            console.log(arrR);
+            console.log(arrValores);
+
+            document.getElementById("rGenerado").innerHTML = arrR;
+            document.getElementById("vGenerados").innerHTML  =arrValores; 
+        }
+ 
+    </script>
+</head>
+<body>
+    <div id="formulario">
+        <p><h1>Generadores de Valores Aleatorios de la Distribución de Poisson</h1></p>
+        <p>Ingrese el valor de lambda: <input type="number" id="inputLambda"></p>
+        <p>Ingrese la cantidad de números a generar: <input type="number" id="nAzar"></p>
+        <p><button onclick="poisson()">Generar</button></p>
+        <div>
+            <p>
+                <h2></br>Aleatorios Generados</h2>
+            </p>
+
+            <p>
+                <b>Valores de R:</b>    <div id="rGenerado">aa</div>
+            
+            </p>
+
+            <p>
+                <b>Valores Aleatorios: </b>     <div id="vGenerados">, 1, 1, 1,</div> 
+            
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>
