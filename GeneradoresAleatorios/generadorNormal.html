@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribución Normal</title>
+    <style>
+        #formulario , #target{
+            left: 30%;
+            width: 550px;
+            right: 30%;
+            position:relative;
+            text-align: center;
+        }
+        #contenedor{
+            text-align: center;
+            display: inline-block;
+        }
+        #contenedor p{
+            width: 420px;
+            
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+     <div id="formulario">
+        <p><h1>Generadores de Valores Aleatorios de la Distribución Normal</h1></p>
+        <p>Ingrese la cantidad de numeros a generar: <input type="number" id="numRnd"></p>
+        <p>Ingrese la media: <input type="number" id="media"></p>
+        <p>Ingrese la desviacion estandar: <input type="number" id="desviacion"></p>
+        <p><button onclick="normal()">Generar</button></p>
+        <div>
+            <p>
+                <h2></br>Aleatorios Generados</h2>
+            </p>
+
+            <p>
+                <b>Valores de R:</b>    <div id="valoresR">Numeros R</div>
+            
+            </p>
+
+            <p>
+                <b>Valor de la normal: </b>     <div id="normal">Resultado de la normal</div> 
+            
+            </p>
+        </div>
+        
+    </div>
+
+    <script>
+    
+        function normal(){
+            var media = document.getElementById("media").value;
+            var desviacion = document.getElementById("desviacion").value;
+            var n = document.getElementById("numRnd").value;
+
+
+            if((n<=0 || media<=0 || desviacion<=0)){
+                alert("Todos los campos deben ser positivos y mayores a 0!");
+            }else{
+                generadorNormal(media,desviacion,n);
+            }
+        }
+
+        function generadorNormal(media,desviacion,n){
+
+            var arrR = "";
+            var arrValores = [];
+
+            for(var i=0;i<n;i++){
+
+            let sum = 0;
+            let Normal=0;
+
+                for(var j=0;j<12;j++){
+                    var R = Math.random().toFixed(5);
+                    sum += R; 
+                    arrR+= R+", ";
+                }
+                Normal=media+(desviacion*(sum-6));
+                console.log(sum);
+                arrValores+= Normal+", "; 
+            }
+            
+            console.log(arrR);
+            console.log(arrValores);
+           
+            document.getElementById("valoresR").innerHTML = arrR;
+            document.getElementById("normal").innerHTML  = arrValores; 
+        }
+ 
+    </script>
+</body>
+</html>
