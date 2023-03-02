@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribución Normal</title>
+    <style>
+        #formulario , #target{
+            left: 30%;
+            width: 550px;
+            right: 30%;
+            position:relative;
+            text-align: center;
+        }
+        #contenedor{
+            text-align: center;
+            display: inline-block;
+        }
+        #contenedor p{
+            width: 420px;
+            
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+     <div id="formulario">
+        <p><h1>Generadores de Valores Aleatorios de la Distribución Normal</h1></p>
+        <p>Ingrese la cantidad de numeros a generar: <input type="number" id="numRnd"></p>
+        <p>Ingrese la media: <input type="number" id="media"></p>
+        <p>Ingrese la desviacion estandar: <input type="number" id="desviacion"></p>
+        <p><button onclick="normal()">Generar</button></p>
+        <div>
+            <p>
+                <h2></br>Aleatorios Generados</h2>
+            </p>
+
+            <p>
+                <b>Valores de R:</b>    <div id="valoresR">Numeros R</div>
+            
+            </p>
+
+            <p>
+                <b>Valor de la normal: </b>     <div id="normal">Resultado de la normal</div> 
+            
+            </p>
+        </div>
+        
+    </div>
+
+    <script src="jsFiles/DisNormal.js"> 
+ 
+    </script>
+</body>
+</html>

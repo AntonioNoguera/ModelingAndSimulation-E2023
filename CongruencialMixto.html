@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Método Congruencial Mixto o Lineal</title> 
+
+    <script>
+        'use strict'
+        function validar(){
+            var N = document.getElementById("N").value;
+            var seed = document.getElementById("semilla").value;
+            var multp = document.getElementById("multiplicador").value;
+            var incre = document.getElementById("incremento").value;
+            var modu = document.getElementById("modulo").value;
+
+            if( (N<=0 || seed<=0 ||multp<=0 || incre<=0 || modu<=0)){
+                alert("Todos los campos deben ser positivos y mayores a 0!");
+            }else{
+                CongruencialMixto(N,seed,multp,incre,modu);
+            }
+        }
+
+        function CongruencialMixto(N,seed,multp,incre,modu){
+            var x = [parseInt(seed)];
+            var numGenerados = [];  
+
+            var tabla = "<table style='width:100%'><tr><th>n</th><th>Xn</th><th>(a×x[i]+c)mod(m)</th><th># Aleatorio</th></tr>"
+            for(var i=0;i<parseInt(N);i++){
+                let R = (multp*x[i]+parseInt(incre))%modu;
+                x.push(R);
+                numGenerados.push(R/modu);
+                tabla+="<tr><td>"+(i+1)+"</td><td>"+x[i]+"</td><td>"+R+"</td><td>"+numGenerados[i]+"</td></tr>" 
+            }
+            console.log(numGenerados);
+            console.log(x);
+            tabla+="</table>"
+
+            document.getElementById("target").innerHTML=tabla;
+        }
+    </script>
+        
+    <style>
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+        } 
+  
+        table, th, td {
+        border: 1px solid black;
+        }
+        
+        #formulario , #target{
+            left: 30%;
+            width: 550px;
+            right: 30%;
+            position:relative;
+            text-align: center;
+        }
+        #contenedor{
+            text-align: center;
+            display: inline-block;
+        }
+        #contenedor p{
+            width: 420px;
+            
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="formulario">
+        
+        <h1>
+            Método Congruencial Mixto o Lineal
+        </h1>
+        <div id="contenedor">
+            <p>
+                Ingresa el número valores a generar:
+                <input type="number" id="N">
+            </p>
+
+            <p>
+                Ingresa la semilla:
+                <input type="number" id="semilla">
+            </p>
+            <p>
+                Ingresa el multiplicador (a):
+                <input type="number" id="multiplicador">
+            </p>
+            <p>
+                Ingresa el incremento (b):
+                <input type="number" id="incremento">
+            </p>
+            <p>
+                Ingresa el modulo:
+                <input type="number" id="modulo">
+            </p>
+
+        </div>
+        
+        
+        <p>
+            <button onclick="validar()">Calcular</button>
+        </p>
+    
+    </div>
+    <div id="target"> 
+    </div>
+</body>
+</html>

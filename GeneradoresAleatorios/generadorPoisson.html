@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Distribución de Poisson</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #formulario , #target{
+            left: 30%;
+            width: 550px;
+            right: 30%;
+            position:relative;
+            text-align: center;
+        }
+        #contenedor{
+            text-align: center;
+            display: inline-block;
+        }
+        #contenedor p{
+            width: 420px;
+            
+            text-align: right;
+        }
+    </style>
+    <script src="jsFiles/DisPoisson.js">
+        
+    </script>
+</head>
+<body>
+    <div id="formulario">
+        <p><h1>Generadores de Valores Aleatorios de la Distribución de Poisson</h1></p>
+        <p>Ingrese el valor de lambda: <input type="number" id="inputLambda"></p>
+        <p>Ingrese la cantidad de números a generar: <input type="number" id="nAzar"></p>
+        <p><button onclick="poisson()">Generar</button></p>
+        <div>
+            <p>
+                <h2></br>Aleatorios Generados</h2>
+            </p>
+
+            <p>
+                <b>Valores de R:</b>    <div id="rGenerado"></div>
+            </p>
+
+            <p>
+                <b>Valores Aleatorios: </b>     <div id="vGenerados"></div> 
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>

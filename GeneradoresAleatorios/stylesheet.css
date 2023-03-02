@@ -1,0 +1,56 @@
+body{
+    height: 100vh;
+    font-size: small;
+    background: linear-gradient(240deg,skyblue,pink,yellow);
+
+}
+
+.button1{
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    
+}
+
+.div1{
+    margin: 200px auto;
+    border: 3px inset #000;
+    border-radius: 25%;
+    position: absolute;
+    height: 35vh;
+    position: inherit;
+    width: 600px;
+    
+
+}
+
+h1{
+    text-align: center;
+    margin:20px auto;
+    border-bottom: 3px dotted black;
+}
+
+.children{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+
+}
+
+#Resultado{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+
+}
+
+span{
+    font-family: 'M PLUS 1 Code', sans-serif;
+    font-size: larger;
+}
