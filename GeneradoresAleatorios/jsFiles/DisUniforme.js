@@ -11,25 +11,18 @@ function prueba1() {
     }else if((a<=0) || (b<=0) ){
         alert("No puedes ingresar valores negativos o saldrá erroneo el resultado");
     }
-
-
-    for(var i=0; i<=N; i++){
+ 
+    for(var j=0; j<N; j++ ){
         
-        var NumRandom = Math.random().toFixed(2);
-        ArrayR.push(NumRandom);
-        console.log(ArrayR);
+        var NumRandom = parseFloat(Math.random());
+        ArrayR.push(NumRandom.toFixed(5)); 
+
+        var Vu = parseFloat(a) + NumRandom*(parseFloat(a-b));
+        ArrayVu.push(Vu.toFixed(5)); 
     }
-    
-    document.getElementById('arreglo').innerHTML = ArrayR;
-    
-    for(var j=0; j<=N; j++ ){
-        
-        var Vu;
-        Vu = parseInt(a) + ArrayR[j]*(parseInt(a-b));
-        Vu.toFixed(2);
-        ArrayVu.push(Vu);
-        console.log(ArrayVu);
-    }
+    console.log(ArrayR);
+    console.log(ArrayVu);
 
     document.getElementById("Resultado").innerHTML = ArrayVu;
+    document.getElementById('arreglo').innerHTML = ArrayR;
 }
