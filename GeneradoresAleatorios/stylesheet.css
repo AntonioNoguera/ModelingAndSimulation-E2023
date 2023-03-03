@@ -17,6 +17,7 @@ border: 1px solid black;
     border:2px solid #000;
     background-color:white;
     padding: 2%;
+    word-break: break-all;
 }
 #contenedor{
     text-align: center;

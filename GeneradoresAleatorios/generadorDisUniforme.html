@@ -27,26 +27,30 @@
             <a class="nav-link text-dark fs-4" href="generadorPoisson.html">Distribución Poisson</a>
           </nav>
     </div>
-
     <div id="formulario">
-        <h1>Generadores de Valores Aleatorios de la Distribucion Uniforme</h1><br>
         <div id="contenedor">
-            <form action="#" class="form1">
-                <div class="children">
-                    <span>Ingresa el valor de a (debe ser menor que b): </span>
-                    <input type="number" name="number" id="num" />
-                </div><br>
-                <div class="children">
-                    <span>Ingresa el valor de b (debe ser mayor que a): </span>
-                    <input type="number" name="number" id="num1" />
-                </div>
-            </form> 
-        </div><br><br>
-        <button class="btn btn-outline-dark button1" onclick="prueba1()">Calcular</button>
+            <p><h1>Generadores de Valores Aleatorios de la Distribución Uniforme</h1></p>
+            <p>Ingrese la cantidad de numeros a generar: <input type="number" id="numal"></p>
+            <p>Ingresa el valor de a (< b): <input type="number" id="num"></p>
+            <p>Ingresa el valor de b (> a): <input type="number" id="num1"></p>
+        </div>
+        <p><button class="btn btn-outline-dark button1" onclick="prueba1()">Calcular</button></p>
     </div>
     <div id="formulario">
-        <div id="Resultado">Aquí se muestra el resultado...</div>
+        <p>
+            <h2>Aleatorios Generados</h2>
+        </p>
+
+        <p style="background-color: antiquewhite;">
+            <b>Valores de R:</b>    <div id="arreglo"></div>
+        </p>
+
+        <p style="background-color: lavender;">
+            <b>Valores de la Distribucion Uniforme: </b>     <div id="Resultado"></div> 
+        </p>
+
     </div>
+
     <script src="jsFiles/DisUniforme.js">
         
     </script>
