@@ -1,3 +1,4 @@
+//CÓDIGO DISTRIBUCION NORMAL
 function normal(){
     var media = document.getElementById("media").value;
     var desviacion = document.getElementById("desviacion").value;

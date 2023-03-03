@@ -1,4 +1,4 @@
-
+//CÓDIGO DISTRIBUCION UNIFORME
 function prueba1() {
     var N = document.getElementById('numal').value;
     var a = document.getElementById('num').value;

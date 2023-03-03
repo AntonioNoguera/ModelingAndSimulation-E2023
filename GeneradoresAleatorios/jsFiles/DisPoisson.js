@@ -1,7 +1,4 @@
-//Hora Inicio: 2:20pm
-//Hora Fin: 3:10 pm
-'use strict' 
-console.log("YA LLEGO TILIN");
+//CÓDIGO DISTRIBUCION POISSON
 
 function poisson(){
     var lambda = document.getElementById("inputLambda").value;
