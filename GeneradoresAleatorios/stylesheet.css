@@ -1,56 +1,40 @@
-body{
-    height: 100vh;
-    font-size: small;
-    background: linear-gradient(240deg,skyblue,pink,yellow);
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+} 
 
+table, th, td {
+border: 1px solid black;
 }
 
-.button1{
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    display: flex;
-    
-}
-
-.div1{
-    margin: 200px auto;
-    border: 3px inset #000;
-    border-radius: 25%;
-    position: absolute;
-    height: 35vh;
-    position: inherit;
-    width: 600px;
-    
-
-}
-
-h1{
+#formulario , #target{
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom:10px;
+    width: 700px;
+    position:relative;
     text-align: center;
-    margin:20px auto;
-    border-bottom: 3px dotted black;
+    border:2px solid #000;
+    background-color:white;
+    padding: 2%;
+}
+#contenedor{
+    text-align: center;
+    display: inline-block;
+}
+#contenedor p{
+    width: 500px;
+    text-align: right;
 }
 
-.children{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin: 0 auto;
-    padding: 10px;
-
-}
-
-#Resultado{
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    
-
-}
-
-span{
-    font-family: 'M PLUS 1 Code', sans-serif;
-    font-size: larger;
+#menu{
+    width:700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #000;
+    text-align: center;
+    position: relative;
+    background-color: white;
 }

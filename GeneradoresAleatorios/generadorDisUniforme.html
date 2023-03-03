@@ -10,53 +10,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 
-        <!--CSS-->
-        <link rel="stylesheet" href="/stylesheet.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="/GeneradoresAleatorios/stylesheet.css">
 
-        <!--font letra-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!--font letra-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html">
-                <img src="https://cdn-icons-png.flaticon.com/512/1822/1822410.png" alt="stadistic" width="30"
-                    height="24" />
-                Modelado de sistemas dinamicos
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="generadorDisUniforme.html">Distribucion Uniforme</a>
-                    <a class="nav-link" href="generadorPoisson.html">Distribucion de Posion</a>
-                    <a class="nav-link" href="generadorNormal.html">Distribucion Normal</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="div1">
-        <h1>Distribucion Uniforme</h1>
-        <form action="#" class="form1">
-            <div class="children">
-                <span>Ingresa el valor de a (debe ser menor que b): </span>
-                <input type="number" name="number" id="num" />
-            </div>
-            <div class="children">
-                <span>Ingresa el valor de b (debe ser mayor que a): </span>
-                <input type="number" name="number" id="num1" />
-            </div>
-        </form> 
-        <button class="btn btn-outline-dark button1" onclick="prueba1()">Calcular</button>
-        <div id="Resultado">Aquí se muestra el resultado...</div>
+<body class="bg-info">
+    <div id="menu">
+        <nav class="nav justify-content-center">
+            <a class="nav-link text-dark fs-4 fw-bold" href="/GeneradoresAleatorios/generadorDisUniforme.html">Distribución Uniforme</a>
+            <a class="nav-link text-dark fs-4" href="/GeneradoresAleatorios/generadorNormal.html">Distribución Normal</a>
+            <a class="nav-link text-dark fs-4" href="/GeneradoresAleatorios/generadorPoisson.html">Distribución Poisson</a>
+          </nav>
     </div>
 
+    <div id="formulario">
+        <h1>Generadores de Valores Aleatorios de la Distribucion Uniforme</h1><br>
+        <div id="contenedor">
+            <form action="#" class="form1">
+                <div class="children">
+                    <span>Ingresa el valor de a (debe ser menor que b): </span>
+                    <input type="number" name="number" id="num" />
+                </div><br>
+                <div class="children">
+                    <span>Ingresa el valor de b (debe ser mayor que a): </span>
+                    <input type="number" name="number" id="num1" />
+                </div>
+            </form> 
+        </div><br><br>
+        <button class="btn btn-outline-dark button1" onclick="prueba1()">Calcular</button>
+    </div>
+    <div id="formulario">
+        <div id="Resultado">Aquí se muestra el resultado...</div>
+    </div>
     <script src="jsFiles/DisUniforme.js">
         
     </script>
