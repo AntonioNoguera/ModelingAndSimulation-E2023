@@ -1,4 +1,5 @@
 //Esquema Principal
+'use strict'
 var Reloj=0;
 var delta=0;
 var LCajas=0;
@@ -24,13 +25,14 @@ function validacion(){
         FormulacionModulo(inputM);
     }
 } 
+
 function FormulacionModulo(TLimite){
-    Reloj=0; delta=0; LCajas=0; var Ret = false; Na1=0; Na2=0; TC=0;
+    Reloj=0; delta=0; LCajas=30; var Ret = false; Na1=0; Na2=0; TC=0;
     TAsigC=60; NumRet=0; To1=0; To2=0; Fila1=0; Fila2=0; Ts1=0; Ts2=0;
 
-    Ts1=segmento1y2();
-    Ts2=segmento1y2();
 
+    Ts1=segmento1y2();
+    Ts2=segmento1y2(); 
 
     do{ 
         delta = Ts1>Ts2 ? Ts2 : Ts1;
@@ -110,7 +112,7 @@ function segmento3y4(){
             }
 
             Na2=Na2+1;
-            Fila=Fila1-1;
+            Fila1=Fila1-1;
 
             Ts2=segmento1y2();
         }
@@ -119,8 +121,8 @@ function segmento3y4(){
     }
 
     if(Fila1<=5){
-        Ts1=Ts1-delta;
-        if(Ts1==0){
+        Ts1=Ts1-delta; 
+        if(Ts1==0){ 
             Fila1=Fila1+1;
             Na1=Na1+1;
             Ts1=segmento1y2();
@@ -128,7 +130,8 @@ function segmento3y4(){
     }else{
         To1=To1+delta;
     }
-    if(LCajas==0 && Fila1>5 && Fila2>5){ 
+
+    if(LCajas==0 && Fila1>5 && Fila2>5){
         Ret=true;
     }
 }
