@@ -1,3 +1,26 @@
-h2{
-    text-align: center;
+html body{
+    background-color: #dafbff;
 }
+
+h2{
+   text-align: center;
+}
+
+li{
+   list-style-type:none;
+}
+
+.contenedor{
+
+   margin: 50px;
+   margin-left: 20%;
+   margin-right: 20%;
+   font-family: 'font-sans-serif';
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #212529;
+   -webkit-text-size-adjust: 100%;
+   -webkit-tap-highlight-color: transparent;
+}
+
