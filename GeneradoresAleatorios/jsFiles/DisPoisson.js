@@ -12,7 +12,7 @@ function poisson(){
 }
 
 function generadorPoisson(N,lambda){
-    const elambda = Math.pow(2.7182818284,-lambda);
+    const e_lambda = Math.pow(2.7182818284,-lambda);
 
     var arrR = "";
     var arrValores = [];
@@ -27,20 +27,18 @@ function generadorPoisson(N,lambda){
 
         for(var j=0;sum<=R;j++){
             if(j == 0){
-                Pois = elambda*Math.pow(lambda, j);
+                Pois = e_lambda*Math.pow(lambda, j);
                 sum += Pois; 
             }else{
                 Fact*= j;
-                Pois = (elambda*Math.pow(lambda, j)) / Fact;
+                Pois = (e_lambda*Math.pow(lambda, j)) / Fact;
                 sum += Pois;
             }
-
         }
+        
         console.log(typeof(sum));
         arrValores+= j+", "; 
-    }
-    console.log(arrR);
-    console.log(arrValores);
+    } 
 
     document.getElementById("rGenerado").innerHTML = arrR;
     document.getElementById("vGenerados").innerHTML  =arrValores; 
