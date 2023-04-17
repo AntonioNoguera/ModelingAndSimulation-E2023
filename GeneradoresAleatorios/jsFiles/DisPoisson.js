@@ -19,6 +19,7 @@ function generadorPoisson(N,lambda){
 
     for(var i=0;i<N;i++){
         var R = Math.random().toFixed(5);
+        console.log(R)
         let sum = 0;
         let Pois;
         let Fact=1; 
@@ -26,20 +27,18 @@ function generadorPoisson(N,lambda){
         arrR+= R+", ";
 
         for(var j=0;sum<=R;j++){
+            
             if(j == 0){
-                Pois = e_lambda*Math.pow(lambda, j);
-                sum += Pois; 
+                Pois = e_lambda*Math.pow(lambda, j); 
             }else{
                 Fact*= j;
-                Pois = (e_lambda*Math.pow(lambda, j)) / Fact;
-                sum += Pois;
+                Pois = (e_lambda*Math.pow(lambda, j)) / Fact; 
             }
+            sum += Pois; 
         }
-        
-        console.log(typeof(sum));
-        arrValores+= j+", "; 
+        arrValores+= j-1+", "; 
     } 
 
     document.getElementById("rGenerado").innerHTML = arrR;
-    document.getElementById("vGenerados").innerHTML  =arrValores; 
+    document.getElementById("vGenerados").innerHTML  = arrValores; 
 }
