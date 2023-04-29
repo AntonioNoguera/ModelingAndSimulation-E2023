@@ -6,6 +6,13 @@
     <script>
         //Hora de arranque 4:50 pm
         'use strict'
+    
+
+        var clientesAtendidos = [];
+        var TOcioM = [];
+        var estadoM = [];
+        
+
         function validacion(){
             var tiempoL=parseInt(document.getElementById("tiempoA").value);
             
@@ -19,46 +26,60 @@
         function simulacionCajas(tiempoLimite){
             var Reloj = 0;
             var desfase = 0;
-            
+
             //generacion de la lista de tiempos
             var T_LlegadaC = gPoisson(tiempoLimite,1.36);
             var T_OperacionC = gPoisson(tiempoLimite,2.42);
 
-            var colaC = 0;
-
-            var clientesAtendidos = [0,0,0,0,0,0];
-            var TOcioM = [0,0,0,0,0,0];
-
-            var estadoM = [0,0,0,0,0,0];
+            clientesAtendidos = [0,0,0,0,0,0];
+            TOcioM = [0,0,0,0,0,0];
+            estadoM = [0,0,0,0,0,0];
 
 
             do{
                 //Verificar en que cliente se va
-                var flag=false;
-                var iterador=0;
+                var flag = false;
+                var iterador = 0;
+                console.log("minuto"+Reloj);
                 do{
-                    if(Reloj<=T_LlegadaC[iterador]){
-                        colaC = asignarMaquina(colaC);
-                        T_Llegada.shift();
+                    console.log(T_LlegadaC);
+
+                    if((T_LlegadaC[iterador]-desfase)<=Reloj){ 
+                        if(asignarMaquina()){
+                            T_LlegadaC.shift();
+                        }else{
+                            desfase++;
+                        }
+                        
                     }else{
                         flag=true;
                     }
 
                     iterador++;
-                }while(flag==false)
+                }while(flag==false);
 
                 //Recorrer el arreglo para observar si el cliente  
 
-
-
                 Reloj++;
-            }while(Reloj<=tiempoLimite);
+            }while(Reloj<tiempoLimite);
 
             console.log(T_LlegadaC);
         }
 
         function asignarMaquina(){
+            var iterador=0;
+            var flagM=false; 
 
+            for(var i=0;i<estadoM.length;i++){
+                if(estadoM[i]==0){
+                    console.log("La máquina "+i+" se ha ocupado!!");
+                    estadoM[i]=1;
+                    clientesAtendidos[i]++;
+                    return true;
+                } 
+            }
+            
+            return false;
         }
 
         function gPoisson(N,lambda){
@@ -82,8 +103,7 @@
                         Pois = (e_lambda*Math.pow(lambda, j)) / Fact; 
                     }
                     sum += Pois; 
-                }
-                console.log((j-1))
+                } 
                 arrValores.push(arrValores[i]+(j-1)); 
             } 
             return arrValores;
