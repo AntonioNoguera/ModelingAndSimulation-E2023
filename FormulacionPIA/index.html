@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'> 
+    <title></title> 
+    <script>
+        //Hora de arranque 4:50 pm
+        'use strict'
+        function validacion(){
+            var tiempoL=parseInt(document.getElementById("tiempoA").value);
+            
+            if(isNaN(tiempoL) || tiempoL<=0){
+                alert("INGRESE UN VALOR VALIDO");
+            }else{
+                simulacionCajas(tiempoL);
+            }
+        }
+
+        function simulacionCajas(tiempoLimite){
+            var Reloj=0;
+            //generacion de la lista de tiempos
+            
+
+            var T_LlegadaC = gPoisson(tiempoLimite,1.36);
+            var T_OperacionC = gPoisson(tiempoLimite,2.42)
+            colaC=0
+
+            var TOcio=[0,0,0,0,0,0];
+
+
+            do{
+                
+
+                //Verificar
+                
+
+
+                //Recorrer el arreglo para observar si el cliente  
+
+
+
+                Reloj++;
+            }while(Reloj<=tiempoLimite);
+
+            console.log(T_LlegadaC);
+        }
+
+        function gPoisson(N,lambda){
+            const e_lambda = Math.pow(2.7182818284,-lambda);
+
+            var arrValores = [0];
+
+            for(var i=0;i<N;i++){
+                var R = Math.random().toFixed(5);  
+
+                let sum = 0;
+                let Pois;
+                let Fact=1;  
+
+                for(var j=0;sum<=R;j++){
+                    
+                    if(j == 0){
+                        Pois = e_lambda*Math.pow(lambda, j); 
+                    }else{
+                        Fact*= j;
+                        Pois = (e_lambda*Math.pow(lambda, j)) / Fact; 
+                    }
+                    sum += Pois; 
+                }
+                console.log((j-1))
+                arrValores.push(arrValores[i]+(j-1)); 
+            } 
+            return arrValores;
+            
+        }
+    </script>
+</head>
+<body>
+    <label>Ingrese el tiempo límite (en minutos):</label>
+    <input type="number" id="tiempoA">
+    <button onclick="validacion()">Arranque Simulacion</button>
+</body>
+</html>
