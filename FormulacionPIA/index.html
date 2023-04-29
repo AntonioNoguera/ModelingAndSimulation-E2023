@@ -152,6 +152,8 @@
         }
     
         function generarTabla(){
+            document.getElementById("cajaTabla").classList.remove('is-visible');	
+
             var tabla="<table class='table table-striped'><thead><tr>"
             tabla+= "<th scope='col' colspan='4' style='text-align:center;font-size:1.5em;' >Resultados de la Simulación</th>"
             tabla+= "</tr><tr><th scope='col' style='text-align:center;'>Número de Caja</th>"
@@ -171,15 +173,31 @@
                 tabla+="<td style='text-align:center;'>"+((parseFloat(clientesAtendidos[i]*100)/suma).toFixed(2))+"%</td></tr>";
             }
             tabla+="</tbody></table>";
+ 
+            document.getElementById("cajaTabla").classList.add('is-visible');	 
 
             document.getElementById("spanObjetivo").innerHTML=tabla;
         }
 
     </script> 
+    
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
+    <style>
+        .is-visible {
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+		}
+
+        #cajaTabla{
+            transform: translateY(3ch);
+			opacity: .0;
+			transition: opacity 1s, transform 1s;
+			will-change: transform, opacity;
+        }
+    </style>
 
 </head>
 <body class="bg-black" style="background: linear-gradient(to right, #0d3d3f, #21192e)">
@@ -200,7 +218,7 @@
         </div>
 
         <div class="col-12 p-2">
-            <input type="number" id="tiempoA"  class="w-50 mx-auto form-control" >
+            <input type="number" id="tiempoA"  class="w-50 mx-auto form-control text-center" >
         </div>
 
         <div class="col-12 p-2" >
@@ -208,11 +226,9 @@
         </div>
     </div>
     
-    <div class="bg-white m-5 row justify-content-center w-80 mx-auto" style="border-radius: 10px; width: 60%;">
+    <div class="bg-white m-5 row justify-content-center w-80 mx-auto" id="cajaTabla" style="border-radius: 10px; width: 60%;">
         <div class="row">
-            <span id="spanObjetivo" class="p-3">
-                
-            </span>
+            <span id="spanObjetivo" class="p-3"></span>
         </div>
 
     </div>
