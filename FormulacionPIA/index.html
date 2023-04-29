@@ -13,7 +13,6 @@
         var clientesAtendidos = [];
         var TOcioM = [];
         var estadoM = [];
-
         var T_LlegadaC = []; 
         
         function validacion(){
@@ -71,7 +70,7 @@
                 supervisionMaquinas();
                 Reloj++;
             }while(Reloj<tiempoLimite);
-            generarTabla();
+            animacionTabla();
             console.log("DESFASE TOTAL: "+ desfase)
             console.log("ATENDIDOS: "+clientesAtendidos)
 
@@ -151,7 +150,7 @@
             return (j-1);
         }
     
-        function generarTabla(){ 
+        function generarTabla(){  
 
             var tabla="<table class='table table-striped'><thead><tr>"
             tabla+= "<th scope='col' colspan='4' style='text-align:center;font-size:1.5em;' >Resultados de la Simulación</th>"
@@ -173,7 +172,7 @@
             }
             tabla+="</tbody></table>";
             
-            animacionTabla();
+            
 
             document.getElementById("spanObjetivo").innerHTML=tabla;
         } 
@@ -192,6 +191,8 @@
             document.getElementById("cajaTabla").style.opacity = 1; 
             document.getElementById("cuerpo").style.cursor = "auto" ;
             document.getElementById("boton").style.cursor = "auto" ;
+
+            generarTabla();
             },1000);
 
             
