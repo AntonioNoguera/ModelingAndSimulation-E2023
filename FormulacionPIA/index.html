@@ -17,23 +17,35 @@
         }
 
         function simulacionCajas(tiempoLimite){
-            var Reloj=0;
-            //generacion de la lista de tiempos
+            var Reloj = 0;
+            var desfase = 0;
             
-
+            //generacion de la lista de tiempos
             var T_LlegadaC = gPoisson(tiempoLimite,1.36);
-            var T_OperacionC = gPoisson(tiempoLimite,2.42)
-            colaC=0
+            var T_OperacionC = gPoisson(tiempoLimite,2.42);
 
-            var TOcio=[0,0,0,0,0,0];
+            var colaC = 0;
+
+            var clientesAtendidos = [0,0,0,0,0,0];
+            var TOcioM = [0,0,0,0,0,0];
+
+            var estadoM = [0,0,0,0,0,0];
 
 
             do{
-                
+                //Verificar en que cliente se va
+                var flag=false;
+                var iterador=0;
+                do{
+                    if(Reloj<=T_LlegadaC[iterador]){
+                        colaC = asignarMaquina(colaC);
+                        T_Llegada.shift();
+                    }else{
+                        flag=true;
+                    }
 
-                //Verificar
-                
-
+                    iterador++;
+                }while(flag==false)
 
                 //Recorrer el arreglo para observar si el cliente  
 
@@ -43,6 +55,10 @@
             }while(Reloj<=tiempoLimite);
 
             console.log(T_LlegadaC);
+        }
+
+        function asignarMaquina(){
+
         }
 
         function gPoisson(N,lambda){
