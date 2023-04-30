@@ -161,8 +161,10 @@
             tabla+="<tbody>"
                 
             let suma = 0;
+            let sumaOcio=0
             for (let i = 0; i < clientesAtendidos.length; i++) {
                 suma += clientesAtendidos[i];
+                sumaOcio += TOcioM[i];
             }
             for(var i=0;i<6;i++){  
                 tabla+="<tr><th style='text-align:center;' scope='row'>"+(i+1)+"</th>";
@@ -170,6 +172,13 @@
                 tabla+="<td style='text-align:center;'>"+TOcioM[i]+"</td>";
                 tabla+="<td style='text-align:center;'>"+((parseFloat(clientesAtendidos[i]*100)/suma).toFixed(2))+"%</td></tr>";
             }
+
+            tabla+= "<tr><th style='text-align:center;' scope='row'>Totales</th>";
+            tabla+= "<th style='text-align:center;' scope='row'>"+suma+"</th>";
+            tabla+= "<th style='text-align:center;' scope='row'>"+sumaOcio+"</th>";
+            tabla+= "<th style='text-align:center;' scope='row'>100%</th>"; 
+            tabla+= "</tr>"
+
             tabla+="</tbody></table>";
             
             
